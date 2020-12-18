@@ -1,0 +1,29 @@
+-- used queries in Execute SQL task
+
+-- get the next batch id
+select max(batch_id) + 1 as batch_id from dim_audit
+go
+
+-- Insert into dim audit, to be used inside SSIS / OLEDB Connection
+/*
+insert into dim_audit ( batch_id, package_name, file_name, rows_extracted, rows_inserted, rows_rejected)
+output inserted.id as audit_id
+values (
+	?, -- 0 batch id
+	?, -- 1 package name
+	?, -- 2 file_name
+	0, -- 3 rows_extracted
+	0, -- 4 rows_inserted
+	0 -- 5 rows_rejected
+	)
+go
+*/
+-- update dim audit, to be used inside SSIS / OLEDB Connection
+/*
+update dim_audit
+set 
+    [rows_extracted] = ? + ?, -- 0  extracted processed + 1 extracted error
+    [rows_inserted] = ? - ?, -- 2 pre insert -  3 dest error
+    [rows_rejected] = ? + ? -- 4 extracted error  +  5 dest error
+where id = ? -- 6 audit_id
+*/
