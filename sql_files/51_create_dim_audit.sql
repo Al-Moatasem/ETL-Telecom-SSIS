@@ -58,8 +58,14 @@ alter table dim_audit add Exec_StartDT datetime default(getdate());
 alter table dim_audit add Exec_StopDT datetime default(getdate());
 
 alter table dim_audit add Table_Name nvarchar(255) not null default 'Unknown';
+
+-- run a [select count(*) as row_cnt from ...] the target table in Execute SQL Task BEFORE inserting to dim audit
 alter table dim_audit add Table_Initial_RowCnt int;
+
+-- run a [select count(*) as row_cnt from ...] the target table in Execute SQL Task BEFORE updating to dim audit
 alter table dim_audit add Table_Final_RowCnt int;
+
+-- run a [select max(xx_id) as max_srg from ...] the target table in Execute SQL Task BEFORE updating to dim audit
 alter table dim_audit add Table_Max_SurrogateKey int;
 
 -- a flag (Y/N), 
