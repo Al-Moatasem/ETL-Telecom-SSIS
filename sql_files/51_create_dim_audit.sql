@@ -47,3 +47,21 @@ insert into dim_audit (id, batch_id, package_name, file_name, rows_extracted, ro
 values (-1,0, 'Unknown','Unknown',null,null,null)
 
 SET IDENTITY_INSERT dim_audit off
+
+-- additional metadata to be added to the dim audit table
+
+/*
+-- will be mapped to system variable StartTime in SSIS
+alter table dim_audit add Exec_StartDT datetime default(getdate());
+
+-- update this value after the data flow - getdate()
+alter table dim_audit add Exec_StopDT datetime default(getdate());
+
+alter table dim_audit add Table_Name nvarchar(255) not null default 'Unknown';
+alter table dim_audit add Table_Initial_RowCnt int;
+alter table dim_audit add Table_Final_RowCnt int;
+alter table dim_audit add Table_Max_SurrogateKey int;
+
+-- a flag (Y/N), 
+alter table dim_audit add SuccessfulProcessingInd nchar(1) not null default 'N';
+*/
