@@ -18,3 +18,12 @@ insert into dim_imsi_reference
 values 
 	(310120265624299,12345),
 	(310120265624298,54321)
+;
+
+
+insert into dim_imsi_reference
+values 
+	(310120265624499,95175),
+	(310120265624699,15935),
+	(310120265624599,45685)
+;
