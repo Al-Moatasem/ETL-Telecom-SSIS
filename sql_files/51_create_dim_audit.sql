@@ -43,7 +43,7 @@ go
 
 SET IDENTITY_INSERT dim_audit ON
 
-insert into dim_audit (id, batch_id, package_name, file_name, rows_extracted, rows_inserted, rows_rejected, rows_updated)
-values (-1,-1, 'Unknown','Unknown',0,0,0,0)
+insert into dim_audit (id, batch_id, package_name, file_name, rows_extracted, rows_inserted, rows_rejected)
+values (-1,0, 'Unknown','Unknown',0,0,0)
 
 SET IDENTITY_INSERT dim_audit off
