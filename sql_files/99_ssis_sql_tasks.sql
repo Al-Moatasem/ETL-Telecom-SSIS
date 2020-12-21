@@ -6,7 +6,7 @@ go
 
 -- Insert into dim audit, to be used inside SSIS / OLEDB Connection
 /*
-insert into dim_audit ( batch_id, package_name, file_name, rows_extracted, rows_inserted, rows_rejected)
+insert into dim_audit ( batch_id, package_name, file_name, rows_extracted, rows_inserted, rows_rejected, SuccessfulProcessingInd)
 output inserted.id as audit_id
 values (
 	?, -- 0 batch id
@@ -14,7 +14,8 @@ values (
 	?, -- 2 file_name
 	0, -- 3 rows_extracted
 	0, -- 4 rows_inserted
-	0 -- 5 rows_rejected
+	0, -- 5 rows_rejected
+	'N'
 	)
 go
 */
@@ -24,6 +25,7 @@ update dim_audit
 set 
     [rows_extracted] = ? + ?, -- 0  extracted processed + 1 extracted error
     [rows_inserted] = ? - ?, -- 2 pre insert -  3 dest error
-    [rows_rejected] = ? + ? -- 4 extracted error  +  5 dest error
+    [rows_rejected] = ? + ?, -- 4 extracted error  +  5 dest error
+	SuccessfulProcessingInd = 'Y'
 where id = ? -- 6 audit_id
 */

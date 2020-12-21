@@ -19,8 +19,8 @@ go
 create table fact_transaction (
 	id int not null identity (1,1),
 	transaction_id int not null, -- transaction id from the source systme / file
-	imsi varchar(15) not null,
-	subscriber_id bigint,
+	imsi varchar(9) not null,
+	subscriber_id int,
 	tac varchar(8) not null,
 	snr varchar(6) not null,
 	imei varchar(14) null,

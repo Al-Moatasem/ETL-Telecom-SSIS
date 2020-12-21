@@ -3,8 +3,8 @@ go
 
 CREATE TABLE err_destination_output (
     [id] int,
-    [imsi] varchar(15),
-    [imei] varchar(15),
+    [imsi] varchar(9),
+    [imei] varchar(14),
     [cell] int,
     [lac] int,
     [event_type] varchar(2),
