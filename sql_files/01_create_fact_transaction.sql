@@ -24,8 +24,8 @@ create table fact_transaction (
 	tac varchar(8) not null,
 	snr varchar(6) not null,
 	imei varchar(14) null,
-	cell varchar(4) not null,
-	lac varchar(2) not null,
+	cell int not null,
+	lac int not null,
 	event_type varchar(2) null,
 	event_ts datetime not null,
 	audit_id int not null default (-1)

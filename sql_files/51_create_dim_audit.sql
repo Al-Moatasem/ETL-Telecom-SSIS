@@ -26,7 +26,8 @@ create table dim_audit (
 	--rows_updated int,
 	rows_rejected int,
 	created_at datetime default(getdate()),
-	updated_at datetime default(getdate())
+	updated_at datetime default(getdate()),
+	SuccessfulProcessingInd nchar(1) not null default 'N'
 )
 go
 
