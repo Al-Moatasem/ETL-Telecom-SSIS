@@ -49,6 +49,12 @@ values (-1,0, 'Unknown','Unknown',null,null,null)
 
 SET IDENTITY_INSERT dim_audit off
 
+-- add audit id filed to error tables
+alter table [dbo].[err_source_output] add audit_id int not null default(-1);
+alter table [dbo].[err_destination_output] add audit_id int not null default(-1);
+
+
+
 -- additional metadata to be added to the dim audit table
 
 /*

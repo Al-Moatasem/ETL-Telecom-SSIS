@@ -26,6 +26,7 @@ set
     [rows_extracted] = ? + ?, -- 0  extracted processed + 1 extracted error
     [rows_inserted] = ? - ?, -- 2 pre insert -  3 dest error
     [rows_rejected] = ? + ?, -- 4 extracted error  +  5 dest error
-	SuccessfulProcessingInd = 'Y'
+	SuccessfulProcessingInd = 'Y',
+	updated_at = getdate()
 where id = ? -- 6 audit_id
 */
