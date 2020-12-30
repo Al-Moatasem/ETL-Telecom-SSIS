@@ -5,6 +5,7 @@ CREATE TABLE err_destination_output (
     [id] int,
     [imsi] varchar(9),
     [imei] varchar(14),
+    [subscriber_id] int,
     [cell] int,
     [lac] int,
     [event_type] varchar(2),
