@@ -12,9 +12,9 @@ values (
 	?, -- 0 batch id
 	?, -- 1 package name
 	?, -- 2 file_name
-	0, -- 3 rows_extracted
-	0, -- 4 rows_inserted
-	0, -- 5 rows_rejected
+	NULL, -- 3 rows_extracted
+	NULL, -- 4 rows_inserted
+	NULL, -- 5 rows_rejected
 	'N'
 	)
 go
